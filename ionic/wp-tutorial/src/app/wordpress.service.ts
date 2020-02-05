@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IPost } from '../interfaces/post';
+import { IPost } from './interfaces/post';
 import { stringify } from 'querystring';
 import { Content } from '@angular/compiler/src/render3/r3_ast';
 
