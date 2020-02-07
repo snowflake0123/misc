@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Badge } from '@ionic-native/badge/ngx';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,16 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(
+    public badge: Badge
+  ) {}
+
+  upBadge() {
+    this.badge.increase(1);
+  }
+
+  clearBadge() {
+    this.badge.clear();
+  }
 
 }
