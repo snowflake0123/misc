@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab One
+      {{pageTitle}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card class="welcome-card" (click)="localNotification()" button="true">
+    <!-- <ion-card class="welcome-card" (click)="localNotification()" button="true">
       <img src="/assets/shapes.svg" alt="" />
       <ion-card-header>
         <ion-card-subtitle>Get Started</ion-card-subtitle>
@@ -37,5 +37,17 @@
         <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
         <ion-label>Theme Your App</ion-label>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
+
+    <ion-card button="true" *ngFor="let m of missions">
+      <img src={{m.imgpath}} alt="" />
+      <ion-card-header>
+        <ion-card-subtitle style="text-transform: none;">{{m.course}} - {{m.tool}}</ion-card-subtitle>
+        <ion-card-title>{{m.title}}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{m.content}}
+      </ion-card-content>
+    </ion-card>
 </ion-content>
