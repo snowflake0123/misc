@@ -51,7 +51,7 @@
     <ion-item lines="none">
       <ion-label position="fixed">写真</ion-label>
       <ion-button (click)="takePicture()" size="default" slot="end">
-        <ion-icon name="camera"></ion-icon>
+        <ion-icon name="camera" size="large"></ion-icon>
       </ion-button>
     </ion-item>
 
@@ -65,3 +65,12 @@
   </form>
 
 </ion-content>
+
+<style>
+  ion-icon {
+    color: white;
+  }
+  ion-button {
+    color: white;
+  }
+</style>
