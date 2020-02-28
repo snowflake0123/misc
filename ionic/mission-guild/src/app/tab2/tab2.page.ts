@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Badge } from '@ionic-native/badge/ngx';
 import { Plugins, CameraResultType, CameraSource } from '@capacitor/core'
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -13,24 +14,23 @@ export class Tab2Page {
   tool: string;
   title: string;
   content: string;
-  imgpath: string;
   photo;
   missions: {
-    imgpath: string;
+    photo;
     course: string;
     tool: string;
     title: string;
     content: string;
   }[] = [
     {
-      imgpath: '/assets/scratch.jpeg',
+      photo: '/assets/scratch.jpeg',
       course: 'ゲーム&アプリプログラミング',
       tool: 'Scratch',
       title: 'ねこを左に動かすにはどうやるの？',
       content: 'おちものゲームを作りたいです。ねこは右に動くけど左には動きません。どうしたらいいですか？こまってます。',
     },
     {
-      imgpath: '/assets/scratch.jpeg',
+      photo: '/assets/scratch.jpeg',
       course: 'ロボットクリエイト',
       tool: 'WeDo',
       title: 'ワニのくちがうごかない！！！',
@@ -38,10 +38,12 @@ export class Tab2Page {
     },
   ];
   constructor(
-    public badge: Badge
+    public badge: Badge,
+    public toastController: ToastController,
   ) {}
 
   ionViewWillEnter() {
+    localStorage.missions = JSON.stringify(this.missions); // localStrageにmissionsの値を保存
     if ('missions' in localStorage) {
       this.missions = JSON.parse(localStorage.missions);
     }
@@ -65,7 +67,7 @@ export class Tab2Page {
 
   addMission() {
     this.missions.push({
-      imgpath: '/assets/scratch.jpeg',
+      photo: this.photo,
       course: this.course,
       tool: this.tool,
       title: this.title,
@@ -76,7 +78,17 @@ export class Tab2Page {
     this.tool = '';
     this.title = '';
     this.content = '';
-    this.imgpath = '';
+    this.photo = '';
+  }
+
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'ミッション投稿完了！',
+      duration: 3000,
+      color: 'dark',
+      position: 'top',
+    });
+    toast.present();
   }
 
 }

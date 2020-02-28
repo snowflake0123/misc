@@ -9,7 +9,7 @@ import { Plugins } from '@capacitor/core';
 export class Tab1Page {
   pageTitle = 'ミッション一覧';
   missions: {
-    imgpath: string;
+    photo;
     course: string;
     tool: string;
     title: string;

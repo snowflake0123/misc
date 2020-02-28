@@ -40,7 +40,7 @@
     </ion-list> -->
 
     <ion-card button="true" *ngFor="let m of missions">
-      <img src={{m.imgpath}} alt="" />
+      <img [src]="m.photo" alt="" />
       <ion-card-header>
         <ion-card-subtitle style="text-transform: none;">{{m.course}} - {{m.tool}}</ion-card-subtitle>
         <ion-card-title>{{m.title}}</ion-card-title>
