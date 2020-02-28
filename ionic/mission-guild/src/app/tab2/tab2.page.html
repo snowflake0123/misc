@@ -40,12 +40,12 @@
 
     <ion-item lines="full" class="ion-padding-bottom">
       <ion-label position="floating">タイトル<ion-text color="danger">*</ion-text></ion-label>
-      <ion-input type="text" [(ngModel)]="title" name="title" required maxlength="20"></ion-input>
+      <ion-input type="text" [(ngModel)]="title" name="title" required maxlength="50"></ion-input>
     </ion-item>
 
     <ion-item lines="full" class="ion-padding-bottom">
       <ion-label position="floating">内容<ion-text color="danger">*</ion-text></ion-label>
-      <ion-textarea [(ngModel)]="content" name="content" required maxlength="50"></ion-textarea>
+      <ion-textarea [(ngModel)]="content" name="content" required maxlength="100"></ion-textarea>
     </ion-item>
 
     <ion-item lines="none">

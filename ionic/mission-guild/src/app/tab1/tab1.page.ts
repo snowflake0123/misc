@@ -10,6 +10,7 @@ import { LoadingController } from '@ionic/angular';
 export class Tab1Page {
   pageTitle = 'ミッション一覧';
   missions: {
+    missionId: string;
     photo;
     course: string;
     tool: string;
@@ -21,15 +22,30 @@ export class Tab1Page {
   ) {}
 
   // localStorageからmissionsの値を読み込む
-  async ionViewWillEnter() {
+  async ionViewDidEnter() {
     const loading = await this.loadingController.create({
       message: 'Loading...',
     });
-    await loading.present();
+    if (!this.missions.length) {
+      await loading.present();
+    }
     if ('missions' in localStorage) {
       this.missions = JSON.parse(localStorage.missions)
     }
     loading.dismiss();
+  }
+
+  trackByFn(index, item): string {
+    return item.missionId
+  }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.missions = JSON.parse(localStorage.missions)
+      event.target.complete();
+    }, 500);
   }
 
   // localNotification() {

@@ -10,12 +10,14 @@ import { ToastController } from '@ionic/angular';
 })
 export class Tab2Page {
   pageTitle = 'ミッション投稿';
+  missionId: string;
   course: string;
   tool: string;
   title: string;
   content: string;
   photo;
   missions: {
+    missionId: string;
     photo;
     course: string;
     tool: string;
@@ -23,18 +25,12 @@ export class Tab2Page {
     content: string;
   }[] = [
     {
+      missionId: '1',
       photo: '/assets/scratch.jpeg',
       course: 'ゲーム&アプリプログラミング',
       tool: 'Scratch',
       title: 'ねこを左に動かすにはどうやるの？',
       content: 'おちものゲームを作りたいです。ねこは右に動くけど左には動きません。どうしたらいいですか？こまってます。',
-    },
-    {
-      photo: '/assets/scratch.jpeg',
-      course: 'ロボットクリエイト',
-      tool: 'WeDo',
-      title: 'ワニのくちがうごかない！！！',
-      content: 'ワニをつくってます。くちがうまくうごきません。',
     },
   ];
   constructor(
@@ -65,8 +61,19 @@ export class Tab2Page {
     this.photo = image.dataUrl;
   }
 
+  getUniqueStr(myStrong?: number): string {
+    let strong = 1000;
+    if (myStrong) strong = myStrong;
+    return (
+      new Date().getTime().toString(16) +
+      Math.floor(strong * Math.random()).toString(16)
+    );
+  }
+
   addMission() {
+    this.missionId = this.getUniqueStr();
     this.missions.push({
+      missionId: this.missionId,
       photo: this.photo,
       course: this.course,
       tool: this.tool,

@@ -5,7 +5,7 @@ import { MissionPage } from './mission.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':missionId',
     component: MissionPage
   }
 ];
