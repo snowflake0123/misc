@@ -86,6 +86,8 @@ export class Tab2Page {
     this.title = '';
     this.content = '';
     this.photo = '';
+    
+    this.presentToast();
   }
 
   async presentToast() {

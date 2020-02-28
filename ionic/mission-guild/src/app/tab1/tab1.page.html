@@ -22,7 +22,7 @@
   </ion-card> -->
 
   <ion-card button="true" *ngFor="let m of missions; trackBy: trackByFn" routerLink="/mission/{{m.missionId}}">
-    <img [src]="m.photo" alt="" />
+    <ion-img [src]="m.photo" alt="" *ngIf="m.photo"></ion-img>
     <ion-card-header>
       <ion-card-subtitle style="text-transform: none;">{{m.course}} - {{m.tool}}</ion-card-subtitle>
       <ion-card-title>{{m.title}}</ion-card-title>

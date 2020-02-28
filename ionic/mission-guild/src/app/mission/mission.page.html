@@ -67,7 +67,7 @@
 
   <ion-list-header>写真</ion-list-header>
   <ion-item>
-    <ion-img [src]="missionInfo.photo" alt="なし"></ion-img>
+    <ion-img [src]="missionInfo.photo" *ngIf="missionInfo.photo"></ion-img>
   </ion-item>
 </ion-content>
 
