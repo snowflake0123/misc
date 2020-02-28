@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Plugins } from '@capacitor/core';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
@@ -15,13 +16,20 @@ export class Tab1Page {
     title: string;
     content: string;
   }[] = [];
-  constructor() {}
+  constructor(
+    public loadingController: LoadingController,
+  ) {}
 
   // localStorageからmissionsの値を読み込む
-  ionViewWillEnter() {
+  async ionViewWillEnter() {
+    const loading = await this.loadingController.create({
+      message: 'Loading...',
+    });
+    await loading.present();
     if ('missions' in localStorage) {
       this.missions = JSON.parse(localStorage.missions)
     }
+    loading.dismiss();
   }
 
   // localNotification() {

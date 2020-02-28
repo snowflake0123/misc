@@ -43,7 +43,7 @@ export class Tab2Page {
   ) {}
 
   ionViewWillEnter() {
-    localStorage.missions = JSON.stringify(this.missions); // localStrageにmissionsの値を保存
+    // localStorage.missions = JSON.stringify(this.missions); // localStrageにmissionsの値を保存
     if ('missions' in localStorage) {
       this.missions = JSON.parse(localStorage.missions);
     }
