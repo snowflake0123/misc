@@ -80,13 +80,14 @@ export class Tab2Page {
       title: this.title,
       content: this.content,
     });
+    console.log(this.missions); // For debug only
     localStorage.missions = JSON.stringify(this.missions); // localStrageにmissionsの値を保存
     this.course = '';
     this.tool = '';
     this.title = '';
     this.content = '';
     this.photo = '';
-    
+
     this.presentToast();
   }
 
