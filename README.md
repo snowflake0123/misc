@@ -1,3 +1,2 @@
-## 拙いプログラム置き場
-こんにちは。Shion Tominagaと申します。  
-個人で開発するとき用のリポジトリを作りました（GitHubの使い方をいまいちわかっていない）。
+## github.io
+I'm Shion Tominaga.
